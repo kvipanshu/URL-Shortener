@@ -24,6 +24,7 @@ function setUser(user) {
 		{
 			_id: user._id,
 			email: user.email,
+			role: user.role,
 		},
 		secret
 	);
@@ -33,7 +34,7 @@ function getUser(token) {
 	if (!token) return null;
 	try {
 		return jwt.verify(token, secret);
-	} catch {
+	} catch (error) {
 		return null;
 	}
 }
