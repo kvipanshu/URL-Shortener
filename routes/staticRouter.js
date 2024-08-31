@@ -11,7 +11,7 @@ router.get("/admin/urls", restrictTo(["ADMIN"]), async (req, res) => {
 });
 
 router.get("/", restrictTo(["NORMAL", "ADMIN"]), async (req, res) => {
-	// if (!req.user) return res.redirect("/login");
+	// if (!req.user) return res.redirect("/login"); //FOR STATEFULL
 	const allurls = await URL.find({ createdBy: req.user._id });
 	return res.render("home", {
 		urls: allurls,
@@ -24,6 +24,10 @@ router.get("/signup", (req, res) => {
 
 router.get("/login", (req, res) => {
 	return res.render("login");
+});
+
+router.get("/logout", (req, res) => {
+	return res.render("logout");
 });
 
 module.exports = router;

@@ -33,7 +33,20 @@ async function handleUserLogin(req, res) {
 	return res.redirect("/");
 }
 
+async function handleUserLogout(req, res) {
+	req.session.destroy((err) => {
+		if (err) {
+			// Handle session destruction error
+			return res.status(500).render("error", {
+				error: "Could not log out. Please try again later.",
+			});
+		}
+		res.redirect("/");
+	});
+}
+
 module.exports = {
 	handleUserSignup,
 	handleUserLogin,
+	handleUserLogout,
 };

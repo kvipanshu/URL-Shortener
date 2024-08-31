@@ -37,14 +37,17 @@ function restrictTo(roles) {
 // }
 
 // async function checkAuth(req, res, next) {
-// 	// const userUid = req.cookies?.uid; //for cookies
-// 	const userUid = req.headers["authorization"];
-// 	const token = userUid.split("Bearer")[1];
+// const userUid = req.cookies?.uid; //for cookies
+// const userUid = req.headers["authorization"];
+// const token = userUid.split("Bearer")[1];
 
 // 	const user = getUser(token);
 
 // 	req.user = user;
 // 	next();
+// }
+// module.exports = {
+// 	restrictToLoggedinUserOnly,
 // }
 
 module.exports = {
